@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nebula</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- IFRAME OVERLAY -->
+  <div id="frame-overlay" class="hidden">
+    <div class="frame-bar">
+      <span id="frame-title">Loading…</span>
+      <div class="frame-actions">
+        <button id="frame-new-tab" title="Open in new tab">&#8599;</button>
+        <button id="frame-close" title="Close">&#x2715;</button>
+      </div>
+    </div>
+    <iframe id="main-frame"
+      sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-popups-to-escape-sandbox allow-downloads"
+      frameborder="0"
+      allowfullscreen
+      src="about:blank">
+    </iframe>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <svg class="logo-icon" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="18" r="16" fill="none" stroke="url(#nebGrad)" stroke-width="2"/>
+        <circle cx="18" cy="18" r="5" fill="url(#nebGrad)"/>
+        <ellipse cx="18" cy="18" rx="15" ry="6" fill="none" stroke="url(#nebGrad2)" stroke-width="1.2" opacity="0.7" transform="rotate(-30 18 18)"/>
+        <ellipse cx="18" cy="18" rx="15" ry="6" fill="none" stroke="url(#nebGrad2)" stroke-width="1.2" opacity="0.5" transform="rotate(30 18 18)"/>
+        <defs>
+          <linearGradient id="nebGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#cc0033"/>
+            <stop offset="100%" stop-color="#8b00ff"/>
+          </linearGradient>
+          <linearGradient id="nebGrad2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ff2255"/>
+            <stop offset="100%" stop-color="#9933ff"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="logo-text">Nebula</span>
+    </div>
+
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="8.5" cy="8.5" r="5.5" stroke="#888" stroke-width="1.6"/>
+        <path d="M13 13l3.5 3.5" stroke="#888" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <input id="search-input" type="text" placeholder="Search games &amp; apps…" autocomplete="off" />
+    </div>
+
+    <nav class="tab-nav">
+      <button class="tab-btn active" data-tab="all">All</button>
+      <button class="tab-btn" data-tab="games">Games</button>
+      <button class="tab-btn" data-tab="apps">Apps</button>
+      <button class="tab-btn" data-tab="tools">Tools</button>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <div id="card-grid" class="card-grid"></div>
+    <p id="no-results" class="no-results hidden">No results for that search.</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
